@@ -11,11 +11,27 @@ class Counters extends Component {
       { id: 5, value: 0 },
     ],
   };
+
+  btnHandlerDelete = (counterId) => {
+    console.log("Delete Button clicked...", counterId);
+    const countersMod = this.state.counters.filter((c) => c.id !== counterId);
+    this.setState({ counters: countersMod });
+  };
+
   render() {
     return (
       <div className="bg-dark">
         {this.state.counters.map((counter) => (
-          <Counter key={counter.id} value={counter.value} />
+          <Counter
+            key={counter.id}
+            onDelete={this.btnHandlerDelete}
+            // value={counter.value}
+            // id={counter.id}
+            // for passing above as an object below step is done
+            counter={counter}
+          >
+            {/* <h3>Counter: {counter.id}</h3> */}
+          </Counter>
         ))}
       </div>
     );

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     // count: 0,
-    count: this.props.value,
+    count: this.props.counter.value,
   };
 
   btnHandlerIncr = (arg) => {
@@ -18,10 +18,12 @@ class Counter extends Component {
   };
   // ReactDom.render function
   render() {
-    // console.log("props", this.props.value);
+    //console.log("props", this.props);
     return (
       <div className="container text-center">
         <br />
+        {/* {this.props.children} */}
+        {/* <h3>Counter: {this.props.id}</h3> */}
         <span style={{ fontSize: 25 }} className={this.setCountstyle()}>
           {this.getCount()}
         </span>
@@ -32,8 +34,14 @@ class Counter extends Component {
         >
           Increment
         </button>
-        <button onClick={this.btnHandlerDecr} className="btn btn-danger ">
+        <button onClick={this.btnHandlerDecr} className="btn btn-warning ">
           Decrement
+        </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger mx-2"
+        >
+          Delete
         </button>
       </div>
     );
