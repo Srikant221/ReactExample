@@ -1,17 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDom from "react-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import Counters from "./components/Counters";
+import "./style.css";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const message = (
+  <h3 className="alert alert-warning text-center">
+    Welcome to the world of ReactJs!!
+  </h3>
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDom.render(message, document.getElementById("root"));
+ReactDom.render(<Counters />, document.getElementById("root"));
