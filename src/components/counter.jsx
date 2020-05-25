@@ -1,24 +1,8 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  state = {
-    // count: 0,
-    count: this.props.counter.value,
-  };
-
-  btnHandlerIncr = (arg) => {
-    // console.log(arg);
-    this.setState({ count: this.state.count + 1 });
-  };
-
-  btnHandlerDecr = () => {
-    if (this.state.count !== 0) {
-      this.setState({ count: this.state.count - 1 });
-    }
-  };
-  // ReactDom.render function
   render() {
-    //console.log("props", this.props);
+    // console.log("props", this.props.counter);
     return (
       <div className="container text-center">
         <br />
@@ -29,12 +13,15 @@ class Counter extends Component {
         </span>
         <button
           //onClick={() => this.btnHandlerIncr({ arg: 1 })}
-          onClick={this.btnHandlerIncr}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-success mx-2 "
         >
           Increment
         </button>
-        <button onClick={this.btnHandlerDecr} className="btn btn-warning ">
+        <button
+          onClick={() => this.props.onDecrement(this.props.counter)}
+          className="btn btn-warning "
+        >
           Decrement
         </button>
         <button
@@ -50,13 +37,13 @@ class Counter extends Component {
   //dynamic style update
   setCountstyle() {
     let style = "mx-2 badge badge-";
-    style += this.state.count === 0 ? "warning" : "primary";
+    style += this.props.counter.value === 0 ? "warning" : "primary";
     return style;
   }
 
   //set '0' in text => 'Zero'
   getCount() {
-    return this.state.count === 0 ? "Zero" : this.state.count;
+    return this.props.counter.value === 0 ? "Zero" : this.props.counter.value;
   }
 }
 
