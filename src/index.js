@@ -3,6 +3,7 @@ import ReactDom from "react-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Counters from "./components/Counters";
 import "./style.css";
+import App from "./components/app";
 
 // const message = (
 //   <h3 className="alert alert-warning text-center">
@@ -12,4 +13,4 @@ import "./style.css";
 
 // ReactDom.render(message, document.getElementById("root"));
 
-ReactDom.render(<Counters />, document.getElementById("root"));
+ReactDom.render(<App />, document.getElementById("root"));
